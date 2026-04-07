@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Portfólio</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f5f5f5; }
+    header { background: #1e1e2f; color: white; padding: 1rem; }
+    nav { display: flex; justify-content: space-between; align-items: center; }
+    nav a { color: white; text-decoration: none; margin-left: 15px; }
+
+    section { padding: 2rem; max-width: 1000px; margin: auto; }
+
+    .sobre-container { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .sobre-container img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
+
+    .projetos { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+    .card { background: white; border-radius: 12px; padding: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+    .card:hover { transform: translateY(-5px); }
+
+    footer { background: #1e1e2f; color: white; text-align: center; padding: 1rem; }
+
+    @media(max-width: 600px){
+      nav { flex-direction: column; }
+      .sobre-container { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div><strong>Meu Portfólio</strong></div>
+    <div>
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+    </div>
+  </nav>
+</header>
+
+<section id="sobre">
+  <h2>Sobre Mim</h2>
+  <div class="sobre-container">
+    <img src="sua-foto.jpg" alt="Minha foto">
+    <p>Olá! Meu nome é Paulo Gabriel, sou estudante do curso tcnólogo em sistemas para internet e estou aprendendo desenvolvimento web com foco em HTML, CSS e JavaScript. Além disso sou advogado e atuo na assessoria jurídica da educação do município que resido.</p>
+  </div>
+</section>
+
+<section id="projetos">
+  <h2>Meus Projetos</h2>
+  <div class="projetos" id="lista-projetos"></div>
+</section>
+
+<footer>
+  <p>© 2026 - Paulo Gabriel</p>
+</footer>
+
+<script>
+  const projetos = [
+    { nome: "Portfólio", descricao: "Meu primeiro site profissional" },
+    { nome: "Sistema Web", descricao: "Projeto acadêmico com banco de dados" },
+    { nome: "App Mobile", descricao: "Em desenvolvimento" }
+  ];
+
+  const container = document.getElementById("lista-projetos");
+
+  projetos.forEach(projeto => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    card.innerHTML = `
+      <h3>${projeto.nome}</h3>
+      <p>${projeto.descricao}</p>
+    `;
+
+    container.appendChild(card);
+  });
+</script>
+
+</body>
+</html>
